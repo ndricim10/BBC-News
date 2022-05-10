@@ -1,0 +1,15 @@
+{
+  "name": "newsapi",
+  "version": "1.0.0",
+  "description": "api dummy",
+  "main": "app.js",
+  "scripts": {
+    "json:server": "json-server --watch RestApi.json",
+    "json-db": "json-server --watch database.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}
