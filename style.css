@@ -25,6 +25,10 @@ header {
   left: 0;
   z-index: 10000000000000000;
 }
+header .sign-in a {
+  text-decoration: none;
+  color: unset;
+}
 header div {
   display: flex;
   align-items: center;
@@ -33,7 +37,10 @@ header div {
   color: white;
   font-weight: 700;
 }
-header .bbc-logo span:not(.news) {
+header a {
+  text-decoration: none;
+}
+header a .bbc-logo span:not(.news) {
   background-color: black;
   font-weight: 900;
   font-size: 1rem;
@@ -42,8 +49,9 @@ header .bbc-logo span:not(.news) {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
 }
-header .bbc-logo .news {
+header a .bbc-logo .news {
   color: white;
   font-weight: 700;
   font-size: 2rem;
@@ -116,7 +124,7 @@ header .search input::placeholder {
   color: white;
   gap: 10px;
   position: absolute;
-  top: 70px;
+  top: 65px;
   right: 0;
   z-index: 99999;
   width: 70%;
@@ -143,6 +151,52 @@ header .search input::placeholder {
 
 .search-display[data-display=false] {
   display: none;
+}
+
+section {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+section .login {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+section .login span[data-display-span=false] {
+  display: none;
+}
+section .login span[data-display-span=true] {
+  color: red;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+section .login input {
+  max-width: 100%;
+  width: 200px;
+  outline: none;
+  border: 1px var(--main-color) solid;
+  border-radius: 10px;
+  height: 35px;
+  padding-left: 1rem;
+}
+section .login input::placeholder {
+  text-align: center;
+}
+section .login a button {
+  border: none;
+  background-color: var(--main-color);
+  color: white;
+  font-weight: 700;
+  height: 35px;
+  border-radius: 10px;
+  width: 100%;
+}
+section .login a button:hover {
+  background-color: transparent;
+  color: var(--main-color);
 }
 
 /*# sourceMappingURL=style.css.map */

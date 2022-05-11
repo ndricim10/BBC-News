@@ -4,8 +4,9 @@
   "description": "api dummy",
   "main": "app.js",
   "scripts": {
-    "json:server": "json-server --watch RestApi.json",
-    "json-db": "json-server --watch database.json"
+    "json:server": "json-server --watch ./database/RestApi.json",
+    "json-db": "json-server --watch ./database/database.json",
+    "js-admin": "json-server --watch ./database/admin.json"
   },
   "author": "",
   "license": "ISC",

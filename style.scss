@@ -26,6 +26,13 @@ header {
   left: 0;
   z-index: 9999999999999999;
 
+.sign-in{
+  a{
+    text-decoration: none;
+    color: unset;
+  }
+}
+
   div {
     display: flex;
     align-items: center;
@@ -34,25 +41,31 @@ header {
     color: white;
     font-weight: 700;
   }
-  .bbc-logo {
-    span:not(.news) {
-      background-color: black;
-      font-weight: 900;
-      font-size: 1rem;
-      height: 30px;
-      width: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .news {
-      color: white;
-      font-weight: 700;
-      font-size: 2rem;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      width: 120px;
+  a{
+
+    text-decoration: none;
+
+    .bbc-logo {
+      span:not(.news) {
+        background-color: black;
+        font-weight: 900;
+        font-size: 1rem;
+        height: 30px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+      }
+      .news {
+        color: white;
+        font-weight: 700;
+        font-size: 2rem;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        width: 120px;
+      }
     }
   }
 
@@ -160,3 +173,5 @@ header {
 .search-display[data-display="false"]{
     display: none;
 }
+
+

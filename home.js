@@ -20,7 +20,7 @@ function displaySearch() {
 &sort=published_desc`)
     .then((res) => res.json())
     .then((data) => {
-      //   console.log(data.data[0]);
+        console.log(data);
       //   console.log(search.value);
       leftSectionH1.innerHTML = data.data[0].title;
       // rightSectionImg.src=data.data[0].image

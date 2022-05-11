@@ -1,0 +1,243 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+:root {
+  --main-color: rgba(184, 0, 0, 255);
+}
+
+body {
+  background: #76b852; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #8dc26f,
+    #76b852
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #8dc26f,
+    #76b852
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  overflow-x: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 1rem;
+  padding-top: 10px;
+
+  span:not(.log-out span) {
+    color: white;
+    font-weight: 700;
+  }
+
+  a {
+    text-decoration: none;
+    .log-out {
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      background-color: var(--main-color);
+      height: 30px;
+      width: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      &:hover {
+        color: var(--main-color);
+        background-color: white;
+      }
+    }
+  }
+}
+
+.display-api {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+
+  table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+    tr {
+      display: flex;
+      gap: 20px;
+      border-bottom: 1px white solid;
+
+      .first-cell {
+        width: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      td {
+        width: 200px;
+        // border-right: 1px red solid;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+      }
+
+      .edit-delete{
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+        span {
+            cursor: pointer;
+            font-weight: 700;
+
+  
+            &:hover {
+              color: var(--main-color);
+            }
+          }
+      }
+
+      th {
+        width: 200px;
+        // text-align: center;
+      }
+    }
+  }
+}
+
+.display-view[data-view="true"]{
+    background-color: white;
+    height: max-content;
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    right: 10px;
+    transition: 500ms ease-in-out;
+    padding-inline: .75rem;
+
+   
+    .even{
+        background-color: #ddd;
+    }
+
+    
+
+    .align-center{
+        display: flex;
+        align-items: center;
+    }
+}
+
+.display-view[data-view="false"]{
+
+    display: none;
+}
+
+.remove{
+    display: flex;
+    justify-content: flex-end;
+    color: var(--main-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding-right: 1rem;
+    padding-block: 1rem;
+
+    i{
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+}
+
+@media(max-width: 800px){
+    .remove{
+        i{
+            &:hover{
+                transform: unset;
+            }
+        }
+    }
+}
+
+.key, .value{
+    min-height: 40px;
+}
+
+.key{
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+
+.value{
+    opacity: .75;
+}
+
+.display-edit[data-edit="true"]{
+    position: absolute;
+    background-color: white;
+    color: var(--main-color);
+    left: 10px;
+    right: 10px;
+    top: 100px;
+
+    textarea{
+        height: max-content;
+        width: 100%;
+        min-height: 100px;
+        outline: none;
+    }
+    input{
+        width: 100%;
+        padding-inline: 1rem;
+        outline: none;
+        height: 35px;
+
+        &:read-only{
+          border: none;
+        }
+    }
+
+    .value{
+        padding-right: 1rem;
+    }
+    .key{
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn-edit{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-block: .5rem;
+
+      span{
+        background-color: var(--main-color);
+        color: white;
+        font-weight: 700;
+        width: 150px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        cursor: pointer;
+
+        &:hover{
+          background-color: #ddd;
+          color: var(--main-color);
+          width: 120px;
+          transition: 600ms ease-in-out;
+        }
+      }
+    }
+}
+
+.display-edit[data-edit="false"]{
+    display: none;
+}

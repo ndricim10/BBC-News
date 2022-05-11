@@ -1,7 +1,9 @@
 const newsAPI = 'feaaecacbf0d46b3bc7d60d0f1cecfcb'
 const newsURL = 'https://newsapi.org/v2'
-const dummyURL = 'http://localhost:3000/articles'
-
+const articlesURL = 'http://localhost:3000/articles'
+const adminURL = 'http://localhost:3000/admin'
+const bbcLogo = document.querySelector('.bbc-logo')
+bbcLogo.href = "./index.html"
 const keyApi = "a128deb2acfa4a31a8ec09a2f4614ccd";
 
 const mediaStackAPI = "f681c422852f5ce7a6841f06c83caa95";
@@ -19,11 +21,10 @@ const searchDisplay = document.querySelector(".search-display");
 let currentDate = new Date();
 
 function displaySearch() {
-  fetch(`${dummyURL}?_sort=publishedAt&_order=desc`)
+  fetch(`${articlesURL}?_sort=publishedAt&_order=desc`)
     .then((res) => res.json())
     .then((data) => {
-        console.log(data[0]);
-      //   console.log(search.value);
+        // console.log(data[0]);
       leftSectionH1.innerHTML = data[0].title;
       rightSectionImg.src=data[0].urlToImage
       leftSectionSpan.innerHTML = data[0].description;
@@ -45,7 +46,8 @@ search.addEventListener("input", (e) => {
             searchDisplay.innerHTML=''
             for(let i=0; i<10;i++){
                 // console.log(dataSearch);
-                searchDisplay.innerHTML+=`<a href="#" target="_blank" data-link><span class="title">${dataSearch[i].publishedAt} ${dataSearch[i].title} </span></a>`
+                searchDisplay.innerHTML+=`<a href="#" target="_blank" data-link><span class="title">
+                ${dataSearch[i].title} </span></a>`
                 const linked = document.querySelector('[data-link]')
                 linked.href=dataSearch[i].url
             }
@@ -58,5 +60,9 @@ search.addEventListener("input", (e) => {
 // search.addEventListener("blur", () => {
 //   searchDisplay.setAttribute("data-display", "false");
 // });
+
+
+
+
 
 
