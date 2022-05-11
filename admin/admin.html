@@ -23,6 +23,11 @@
   <body>
     <header class="container-fluid">
       <span><i class="fas fa-user-crown"></i> Hello Admin</span>
+      
+      <div class="create-article">
+        <i class="fas fa-plus"></i> Add an article
+      </div>
+      
       <a href="./login.html"
         ><div class="log-out">
           <i class="fas fa-sign-out"></i>
@@ -205,6 +210,85 @@
       <div class="btn-edit">
           <span>EDIT</span>
       </div>
+      <div class="btn-add">
+        <span>Add Article</span>
+    </div>
+    </div>
+
+    <div class="display-add" data-add="false">
+
+      <div class="remove remove-add">
+        <i class="fas fa-times"></i>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2 key">
+          <span>ID</span>
+        </div>
+        <div class="col-sm-10 value align-center">
+          <input type="text" data-id-add/>
+        </div>
+
+        <div class="col-sm-2 key">
+          <span>Author</span>
+        </div>
+        <div class="col-sm-10 value align-center">
+          <input type="text" data-author-add />
+        </div>
+
+        <div class="col-sm-2 key">
+          <span>Title</span>
+        </div>
+        <div class="col-sm-10 value align-center">
+          <input type="text" data-title-add />
+        </div>
+
+        <div class="col-sm-2 key">
+          <span>Description</span>
+        </div>
+        <div class="col-sm-10 value">
+          <textarea data-description-add>
+               </textarea
+          >
+        </div>
+
+        <div class="col-sm-2 key">
+          <span>URL</span>
+        </div>
+        <div class="col-sm-10 value align-center">
+          <input type="text" data-url-add />
+        </div>
+
+        <div class="col-sm-2 key">
+          <span>Image URL</span>
+        </div>
+        <div class="col-sm-10 value align-center">
+          <input type="text" data-image-url-add />
+        </div>
+
+        <div class="col-sm-2 key">
+          <span>Published at</span>
+        </div>
+        <div class="col-sm-10 value align-center">
+          <input type="text" data-publish-add />
+        </div>
+
+        <div class="col-sm-2 key">
+          <span>Content</span>
+        </div>
+        <div class="col-sm-10 value">
+          <textarea data-content-add>
+                    </textarea
+          >
+        </div>
+      </div>
+
+      <div class="btn-edit">
+          <span>EDIT</span>
+      </div>
+      <div class="btn-add">
+        <span>Add Article</span>
+    </div>
     </div>
 
     <script src="./admin.js"></script>

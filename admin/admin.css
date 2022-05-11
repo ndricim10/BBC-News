@@ -28,6 +28,12 @@ header span:not(.log-out span) {
   color: white;
   font-weight: 700;
 }
+header .create-article {
+  color: green;
+  font-weight: 900;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
 header a {
   text-decoration: none;
 }
@@ -199,8 +205,73 @@ header a .log-out:hover {
   width: 120px;
   transition: 600ms ease-in-out;
 }
+.display-edit[data-edit=true] .btn-add {
+  display: none;
+}
 
 .display-edit[data-edit=false] {
+  display: none;
+}
+
+.display-add[data-add=true] {
+  position: absolute;
+  background-color: white;
+  color: var(--main-color);
+  left: 10px;
+  right: 10px;
+  top: 100px;
+}
+.display-add[data-add=true] textarea {
+  height: max-content;
+  width: 100%;
+  min-height: 100px;
+  outline: none;
+}
+.display-add[data-add=true] input {
+  width: 100%;
+  padding-inline: 1rem;
+  outline: none;
+  height: 35px;
+}
+.display-add[data-add=true] input:read-only {
+  all: unset;
+}
+.display-add[data-add=true] .value {
+  padding-right: 1rem;
+}
+.display-add[data-add=true] .key {
+  display: flex;
+  justify-content: center;
+}
+.display-add[data-add=true] .btn-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 0.5rem;
+}
+.display-add[data-add=true] .btn-add span {
+  background-color: green;
+  color: white;
+  font-weight: 700;
+  width: 150px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.display-add[data-add=true] .btn-add span:hover {
+  background-color: #ddd;
+  color: green;
+  width: 120px;
+  transition: 600ms ease-in-out;
+}
+.display-add[data-add=true] .btn-edit {
+  display: none;
+}
+
+.display-add[data-add=false] {
   display: none;
 }
 
