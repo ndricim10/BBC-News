@@ -45,7 +45,7 @@
     {
       "title": "Bitcoin value drops by 50% since November peak",
       "content": "Image source, Getty Images\nThe value of Bitcoin continued to fall over the weekend as it dropped below $34,000 (£27,630), according to the Coinbase cryptocurrency exchange.\nThe world's largest cryp… [+2164 chars]",
-      "author": "bbcnews",
+      "author": "bbcnews - author",
       "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/8362/production/_124643633_gettyimages-1384896168.jpg",
       "description": "The slide in the value of cryptocurrencies comes as stock markets around the world have also fallen.",
       "id": 4
@@ -151,18 +151,12 @@
       "content": "April 26 (Reuters) - Bitcoin dropped 5.1% to $38,391.36 on Tuesday, down $2,229.82 from its previous close.\r\nBitcoin, the world's biggest and best-known cryptocurrency, is up 16% from the year's low … [+339 chars]"
     },
     {
-      "source": {
-        "id": "reuters",
-        "name": "Reuters"
-      },
-      "id": 13,
-      "author": null,
       "title": "Bitcoin last up 5.7% at $39862.84 - Reuters.com",
-      "description": "Bitcoin rose 5.7% to $39,862.84, on Wednesday, adding $2,102.94 to its previous close.",
-      "url": "https://www.reuters.com/business/bitcoin-last-up-57-3986284-2022-05-04/",
+      "content": "May 4 (Reuters) - Bitcoin rose 5.7% to $39,862.84, on Wednesday, adding $2,102.94 to its previous close.\nBitcoin, the world's biggest and best-known cryptocurrency, is up 20.9% from the year's low o… [+337 chars]",
+      "author": "unknown author",
       "urlToImage": "https://www.reuters.com/resizer/BWWUiBev3PUU7DomJJXE2-Iqz30=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/OZ6CVP422VIJ5A6UACI72VHUSY.jpg",
-      "publishedAt": "2022-05-04T20:16:00Z",
-      "content": "May 4 (Reuters) - Bitcoin rose 5.7% to $39,862.84, on Wednesday, adding $2,102.94 to its previous close.\r\nBitcoin, the world's biggest and best-known cryptocurrency, is up 20.9% from the year's low o… [+337 chars]"
+      "description": "Bitcoin rose 5.7% to $39,862.84, on Wednesday, adding $2,102.94 to its previous close.",
+      "id": 13
     },
     {
       "source": {

@@ -1,3 +1,5 @@
+// Declare variables
+
 const viewBtn = document.querySelector(".view");
 const remove = document.querySelector(".remove");
 const displayView = document.querySelector(".display-view");
@@ -10,15 +12,19 @@ const addButton = document.querySelector(".btn-add");
 const deleteItem = document.querySelector(".delete-item");
 const dataYes = document.querySelector("[data-yes]");
 const dataNo = document.querySelector("[data-no]");
+const removeAdd = document.querySelector(".remove-add");
 
+
+// Display articles
 function displayTitles() {
   fetch(`http://localhost:3000/articles?_order=desc&_sort=publishedAt`)
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
       titles.innerHTML = ` 
       <span class="number-articles">${data.length} articles</span>
       <tr>
-        <th class="first-cell">Source</th>
+        <th class="first-cell">ID</th>
         <th>Title</th>
         <th></th>
       </tr>`;
@@ -147,9 +153,6 @@ function displayTitles() {
               .then((res) => res.json())
               .then((data) => {
                 displayTitles();
-                document
-                  .querySelector("[data-add]")
-                  .setAttribute("data-add", "false");
               });
           });
         });
@@ -166,7 +169,6 @@ removeEdit.addEventListener("click", () => {
   displayEdit.setAttribute("data-edit", "false");
 });
 
-const removeAdd = document.querySelector(".remove-add");
 removeAdd.addEventListener("click", () => {
   document.querySelector("[data-add]").setAttribute("data-add", "false");
 });

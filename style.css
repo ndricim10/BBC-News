@@ -8,8 +8,19 @@
   --main-color: rgba(184, 0, 0, 255);
 }
 
+a {
+  color: unset;
+}
+a:hover {
+  color: var(--main-color);
+}
+
 img {
   width: 100%;
+}
+
+section {
+  margin-top: 20px;
 }
 
 header {
@@ -81,6 +92,27 @@ header .search input::placeholder {
   text-align: center;
 }
 
+.time {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-right: 5px;
+}
+
+.span-time {
+  opacity: 0.8;
+  border-right: 1px solid var(--main-color);
+  padding-right: 5px;
+  opacity: 0.7;
+  font-size: 0.75rem;
+}
+
+.author {
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
 .first-section {
   margin-top: 100px;
 }
@@ -89,30 +121,18 @@ header .search input::placeholder {
   flex-direction: column;
   gap: 5px;
 }
-.first-section .left-section h1 {
+.first-section .left-section a {
+  all: unset;
+}
+.first-section .left-section a:hover {
   cursor: pointer;
 }
-.first-section .left-section h1:hover {
+.first-section .left-section a h1 {
+  cursor: pointer;
+}
+.first-section .left-section a h1:hover {
   color: var(--main-color);
   text-decoration: underline var(--main-color);
-}
-.first-section .left-section .time {
-  width: max-content;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding-right: 5px;
-}
-.first-section .left-section .span-time {
-  opacity: 0.8;
-  border-right: 1px solid var(--main-color);
-  padding-right: 5px;
-  opacity: 0.7;
-  font-size: 0.75rem;
-}
-.first-section .left-section .author {
-  font-weight: 700;
-  font-size: 0.75rem;
 }
 
 .search-display[data-display=true] {
@@ -153,50 +173,85 @@ header .search input::placeholder {
   display: none;
 }
 
-section {
-  margin-top: 70px;
+.lg3-left {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  flex-direction: column;
+  gap: 20px;
 }
-section .login {
+.lg3-left .minutes {
+  color: var(--main-color);
+  font-weight: 600;
+}
+.lg3-left a {
+  all: unset;
+  cursor: pointer;
+}
+.lg3-left a:hover {
+  color: unset;
+}
+.lg3-left a .title-u {
+  opacity: 0.8;
+}
+
+.lg3-right {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-section .login span[data-display-span=false] {
-  display: none;
+.lg3-right img {
+  max-width: 280px;
+  max-height: 150px;
 }
-section .login span[data-display-span=true] {
-  color: red;
+.lg3-right a {
+  all: unset;
+}
+.lg3-right a:hover {
+  all: unset;
+  cursor: pointer;
+}
+.lg3-right a h4 {
+  font-size: 1.2rem;
   font-weight: 700;
-  font-size: 0.9rem;
 }
-section .login input {
-  max-width: 100%;
-  width: 200px;
-  outline: none;
-  border: 1px var(--main-color) solid;
-  border-radius: 10px;
-  height: 35px;
-  padding-left: 1rem;
-}
-section .login input::placeholder {
-  text-align: center;
-}
-section .login a button {
-  border: none;
-  background-color: var(--main-color);
-  color: white;
-  font-weight: 700;
-  height: 35px;
-  border-radius: 10px;
-  width: 100%;
-}
-section .login a button:hover {
-  background-color: transparent;
+.lg3-right a h4:hover {
   color: var(--main-color);
+  text-decoration: underline;
+}
+.lg3-right a span {
+  opacity: 0.8;
+}
+
+.left-links .row {
+  padding-inline: 10px;
+}
+.left-links .row .col-sm-8 {
+  display: flex;
+  gap: 40px;
+  padding-left: 20px;
+}
+.left-links .row .col-sm-8 li {
+  cursor: pointer;
+}
+.left-links .row .col-sm-8 li:hover {
+  color: var(--main-color);
+  text-decoration: underline;
+}
+.left-links .row .col-sm-8 li a {
+  text-decoration: none;
+  color: unset;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  .first-section .left-section h1 {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .first-section .row .col-lg-3 {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

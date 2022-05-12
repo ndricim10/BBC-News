@@ -17,22 +17,58 @@ const leftSectionTime = document.querySelector(".time span");
 const author = document.querySelector(".author");
 const search = document.querySelector("#search");
 const searchDisplay = document.querySelector(".search-display");
+const dataFirstLink = document.querySelector('[data-first-link]')
+const dataSecondLink = document.querySelector('[data-second-link]')
+const lgLeft = document.querySelector('.lg3-left')
+const lgRight = document.querySelector('.lg3-right')
+const dataFirstA = document.querySelector('[data-first-a]')
 
-let currentDate = new Date();
 
-function displaySearch() {
-  fetch(`${articlesURL}?_sort=publishedAt&_order=desc`)
+function displayFirstSection() {
+  fetch(`${articlesURL}?_sort=publishedAt&_order=desc&q=u`)
     .then((res) => res.json())
     .then((data) => {
         // console.log(data[0]);
+        dataFirstA.href=data[0].url
       leftSectionH1.innerHTML = data[0].title;
       rightSectionImg.src=data[0].urlToImage
       leftSectionSpan.innerHTML = data[0].description;
       leftSectionTime.innerHTML = data[0].publishedAt;
       author.innerHTML = data[0].author;
+      
+
+      // RIGHT SECTION
+      for(let i=1; i<4; i++){
+        console.log(data[i].title);
+        // lgLeft.innerHTML=''
+        lgLeft.innerHTML+=`
+        <div>
+        <span class="minutes">${data[i].publishedAt}</span>
+    <a href="${data[i].url}" target="_blank"><span class="title-u">${data[i].title}</span></a>
+    </div>`
+      }
+
+
+      // lg-3-right
+
+      lgRight.innerHTML=`<a href="${data[4].url}" target="_blank">
+      <img src="${data[4].urlToImage}">
+  <h4>${data[4].title}</h4>
+  <span>${data[4].description}</span>
+
+  <div class="time">
+      <i class="fal fa-clock"></i>
+      <span class="span-time">${data[4].publishedAt}</span>
+      <span class="author">${data[4].author}</span>
+  </div>
+  </a>`
+
+      // SECOND SECTION
+      dataFirstLink.innerText=data[1].title
+      dataSecondLink.innerText=data[3].title
     });
 }
-displaySearch();
+displayFirstSection();
 
 search.addEventListener("input", (e) => {
     e = event.target.value;
@@ -46,7 +82,7 @@ search.addEventListener("input", (e) => {
             searchDisplay.innerHTML=''
             for(let i=0; i<10;i++){
                 // console.log(dataSearch);
-                searchDisplay.innerHTML+=`<a href="#" target="_blank" data-link><span class="title">
+                searchDisplay.innerHTML+=`<a href="${dataSearch[i].url}" target="_blank" data-link><span class="title">
                 ${dataSearch[i].title} </span></a>`
                 const linked = document.querySelector('[data-link]')
                 linked.href=dataSearch[i].url
@@ -55,11 +91,14 @@ search.addEventListener("input", (e) => {
     }
   });
 
-  
 
-// search.addEventListener("blur", () => {
+// search.addEventListener("focusout", () => {
 //   searchDisplay.setAttribute("data-display", "false");
 // });
+
+
+
+
 
 
 

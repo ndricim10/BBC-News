@@ -1,24 +1,38 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: rgba(184, 0, 0, 255);
+}
+
+img {
+  width: 100%;
+}
+
 section {
-  margin-top: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
-section .login {
+
+.login {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-section .login span[data-display-span=false] {
+.login span[data-display-span=false] {
   display: none;
 }
-section .login span[data-display-span=true] {
+.login span[data-display-span=true] {
   color: red;
   font-weight: 700;
   font-size: 0.9rem;
 }
-section .login input {
+.login input {
   max-width: 100%;
   width: 200px;
   outline: none;
@@ -26,11 +40,12 @@ section .login input {
   border-radius: 10px;
   height: 35px;
   padding-left: 1rem;
+  border: 1px var(--main-color) solid;
 }
-section .login input::placeholder {
+.login input::placeholder {
   text-align: center;
 }
-section .login a button {
+.login a button {
   border: none;
   background-color: var(--main-color);
   color: white;
@@ -39,8 +54,8 @@ section .login a button {
   border-radius: 10px;
   width: 100%;
 }
-section .login a button:hover {
-  background-color: transparent;
+.login a button:hover {
+  background-color: #ddd;
   color: var(--main-color);
 }
 

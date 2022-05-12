@@ -29,7 +29,6 @@ fetch(`${adminURL}`).then(res=>res.json())
 
   function validate(){
     if(loginInput.value===data[0].email && pass.value===data[0].password){
-        alert('congrats!')
         errorSpan.setAttribute('data-display-span', 'false')
         loginInput.value=''
         pass.value=''
