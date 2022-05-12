@@ -5,13 +5,17 @@ const displayEdit = document.querySelector("[data-edit]");
 const removeEdit = document.querySelector(".remove-edit");
 const titles = document.querySelector(".display-api table");
 const EditValues = document.querySelector(".btn-edit");
-const createArticle = document.querySelector(".create-article");
+const createArticle = document.querySelector('.create-article');
+const addButton = document.querySelector('.btn-add')
+console.log(addButton);
 
 function displayTitles() {
   fetch(`http://localhost:3000/articles?_order=desc&_sort=publishedAt`)
     .then((res) => res.json())
     .then((data) => {
-      titles.innerHTML = ` <tr>
+      titles.innerHTML = ` 
+      <span class="number-articles">${data.length} articles</span>
+      <tr>
         <th class="first-cell">ID</th>
         <th>Title</th>
         <th></th>
@@ -79,7 +83,6 @@ function displayTitles() {
                 title: document.querySelector("[data-title]").value,
                 content: document.querySelector("[data-content]").value,
                 author: document.querySelector("[data-author]").value,
-                url: document.querySelector("[data-url]").value,
                 urlToImage: document.querySelector("[data-image-url]").value,
                 description: document.querySelector("[data-description]").value,
               }),
@@ -111,30 +114,33 @@ function displayTitles() {
 
         // ADD ARTICLE
         createArticle.addEventListener("click", () => {
-          console.log(document.querySelector("[data-add]"));
-          displayEdit.setAttribute("data-add", "true");
+          // console.log(document.querySelector("[data-add]"));
+          document.querySelector('[data-add]').setAttribute('data-add', 'true');
 
-          fetch(`http://localhost:3000/articles`, {
-            method: "POST",
-            body: JSON.stringify({
-              id: document.querySelector("[data-id-add]").value,
-              author: document.querySelector("[data-author-add]").value,
-              title: document.querySelector("[data-title-add]").value,
-              description: document.querySelector("[data-description-add]")
-                .value,
-              urlToImage: document.querySelector("[data-url-add]").value,
-              id: document.querySelector("[data-image-url-add]").value,
-              publishedAt: document.querySelector("[data-publish-add]").value,
-              content: document.querySelector("[data-content-add]").value,
-            }),
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-            },
+          addButton.addEventListener('click',()=>{
+            console.log(data[i].id);
+            fetch(`http://localhost:3000/articles`, {
+              method: "POST",
+              body: JSON.stringify({
+                id: document.querySelector("[data-id-add]").value,
+                author: document.querySelector("[data-author-add]").value,
+                title: document.querySelector("[data-title-add]").value,
+                description: document.querySelector("[data-description-add]").value,
+                urlToImage: document.querySelector("[data-url-add]").value,
+                id: document.querySelector("[data-image-url-add]").value,
+                publishedAt: document.querySelector("[data-publish-add]").value,
+                content: document.querySelector("[data-content-add]").value,
+              }),
+              headers: {
+                "Content-type": "application/json; charset=UTF-8",
+              },
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                displayTitles();
+                document.querySelector('[data-add]').setAttribute('data-add', 'false');
+              });
           })
-            .then((res) => res.json())
-            .then((data) => {
-              displayTitles();
-            });
         });
       }
     });
@@ -151,5 +157,5 @@ removeEdit.addEventListener("click", () => {
 
 const removeAdd = document.querySelector(".remove-add");
 removeAdd.addEventListener("click", () => {
-  displayEdit.setAttribute("data-add", "false");
+  document.querySelector('[data-add]').setAttribute("data-add", "false");
 });

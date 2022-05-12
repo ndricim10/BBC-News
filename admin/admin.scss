@@ -62,6 +62,14 @@ header {
   }
 }
 
+.number-articles{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: var(--main-color);
+}
+
 .display-api {
   margin-top: 100px;
   display: flex;
@@ -119,7 +127,7 @@ header {
 .display-view[data-view="true"]{
     background-color: white;
     height: max-content;
-    position: absolute;
+    position: fixed;
     top: 100px;
     left: 10px;
     right: 10px;
@@ -185,12 +193,12 @@ header {
 }
 
 .display-edit[data-edit="true"]{
-    position: absolute;
+    position: fixed;
     background-color: white;
     color: var(--main-color);
     left: 10px;
     right: 10px;
-    top: 100px;
+    top: 10px;
 
     textarea{
         height: max-content;
@@ -207,6 +215,9 @@ header {
         &:read-only{
           border: none;
         }
+    }
+    .display-none{
+      display: none;
     }
 
     .value{

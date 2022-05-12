@@ -54,6 +54,14 @@ header a .log-out:hover {
   background-color: white;
 }
 
+.number-articles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: var(--main-color);
+}
+
 .display-api {
   margin-top: 100px;
   display: flex;
@@ -100,7 +108,7 @@ header a .log-out:hover {
 .display-view[data-view=true] {
   background-color: white;
   height: max-content;
-  position: absolute;
+  position: fixed;
   top: 100px;
   left: 10px;
   right: 10px;
@@ -152,12 +160,12 @@ header a .log-out:hover {
 }
 
 .display-edit[data-edit=true] {
-  position: absolute;
+  position: fixed;
   background-color: white;
   color: var(--main-color);
   left: 10px;
   right: 10px;
-  top: 100px;
+  top: 10px;
 }
 .display-edit[data-edit=true] textarea {
   height: max-content;
@@ -173,6 +181,9 @@ header a .log-out:hover {
 }
 .display-edit[data-edit=true] input:read-only {
   border: none;
+}
+.display-edit[data-edit=true] .display-none {
+  display: none;
 }
 .display-edit[data-edit=true] .value {
   padding-right: 1rem;
