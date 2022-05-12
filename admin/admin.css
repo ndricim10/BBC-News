@@ -23,6 +23,13 @@ header {
   justify-content: space-between;
   padding-inline: 1rem;
   padding-top: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  background-color: #76b852;
+  height: 60px;
+  align-items: center;
 }
 header span:not(.log-out span) {
   color: white;
@@ -145,7 +152,8 @@ header a .log-out:hover {
     transform: unset;
   }
 }
-.key, .value {
+.key,
+.value {
   min-height: 40px;
 }
 
@@ -165,7 +173,7 @@ header a .log-out:hover {
   color: var(--main-color);
   left: 10px;
   right: 10px;
-  top: 10px;
+  top: 70px;
 }
 .display-edit[data-edit=true] textarea {
   height: max-content;
@@ -225,12 +233,13 @@ header a .log-out:hover {
 }
 
 .display-add[data-add=true] {
-  position: absolute;
+  position: fixed;
   background-color: white;
   color: var(--main-color);
   left: 10px;
   right: 10px;
-  top: 100px;
+  top: 10px;
+  z-index: 9999999999;
 }
 .display-add[data-add=true] textarea {
   height: max-content;
@@ -283,6 +292,48 @@ header a .log-out:hover {
 }
 
 .display-add[data-add=false] {
+  display: none;
+}
+
+.delete-item[data-delete=true] {
+  background-color: white;
+  position: fixed;
+  z-index: 10000000000000002000;
+  top: 200px;
+  left: 25%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block: 0.3rem;
+  padding-inline: 1rem;
+  color: var(--main-color);
+  font-weight: 500;
+  border: 1px var(--main-color) solid;
+  border-radius: 20px;
+}
+.delete-item[data-delete=true] .yes-no {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.delete-item[data-delete=true] .yes-no span {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--main-color);
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.delete-item[data-delete=true] .yes-no span:hover {
+  border: 1px var(--main-color) solid;
+  border-radius: 20%;
+}
+
+.delete-item[data-delete=false] {
   display: none;
 }
 

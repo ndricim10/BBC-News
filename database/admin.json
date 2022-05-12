@@ -1,9 +1,0 @@
-{
-    "admin": [
-        {
-            "id": "admin-login",
-        "email": "admin@news.com",
-        "password": "admin123456"
-        }
-    ]
-}

@@ -5,9 +5,11 @@ const displayEdit = document.querySelector("[data-edit]");
 const removeEdit = document.querySelector(".remove-edit");
 const titles = document.querySelector(".display-api table");
 const EditValues = document.querySelector(".btn-edit");
-const createArticle = document.querySelector('.create-article');
-const addButton = document.querySelector('.btn-add')
-console.log(addButton);
+const createArticle = document.querySelector(".create-article");
+const addButton = document.querySelector(".btn-add");
+const deleteItem = document.querySelector(".delete-item");
+const dataYes = document.querySelector("[data-yes]");
+const dataNo = document.querySelector("[data-no]");
 
 function displayTitles() {
   fetch(`http://localhost:3000/articles?_order=desc&_sort=publishedAt`)
@@ -16,7 +18,7 @@ function displayTitles() {
       titles.innerHTML = ` 
       <span class="number-articles">${data.length} articles</span>
       <tr>
-        <th class="first-cell">ID</th>
+        <th class="first-cell">Source</th>
         <th>Title</th>
         <th></th>
       </tr>`;
@@ -52,6 +54,7 @@ function displayTitles() {
         // VIEW
         spanView.addEventListener("click", () => {
           displayView.setAttribute("data-view", "true");
+          deleteItem.setAttribute("data-delete", "false");
           document.querySelector(".id").innerHTML = data[i].id;
           document.querySelector(".author").innerHTML = data[i].author;
           document.querySelector(".description").innerHTML =
@@ -66,15 +69,13 @@ function displayTitles() {
         // EDIT
         spanEdit.addEventListener("click", () => {
           displayEdit.setAttribute("data-edit", "true");
-          document.querySelector("[data-id]").value = data[i].id;
+          // document.querySelector("[data-id]").value = data[i].id;
           document.querySelector("[data-author]").value = data[i].author;
           document.querySelector("[data-description]").value =
             data[i].description;
           document.querySelector("[data-content]").value = data[i].content;
-          document.querySelector("[data-url]").value = data[i].url;
           document.querySelector("[data-title]").value = data[i].title;
           document.querySelector("[data-image-url]").value = data[i].urlToImage;
-          document.querySelector("[data-publish]").value = data[i].publishedAt;
 
           EditValues.addEventListener("click", () => {
             fetch(`http://localhost:3000/articles/${data[i].id}`, {
@@ -92,9 +93,8 @@ function displayTitles() {
             })
               .then((res) => res.json())
               .then((data) => {
-                console.log(data[i].title);
                 displayTitles();
-                displayEdit.setAttribute("data-edit", "false");
+                displayEdit.setAttribute("data-edit", "true");
               });
           });
         });
@@ -102,22 +102,30 @@ function displayTitles() {
         // DELETE
 
         spanDelete.addEventListener("click", () => {
-          fetch(`http://localhost:3000/articles/${data[i].id}`, {
-            method: "DELETE",
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              console.log(data);
-              displayTitles();
-            });
+          deleteItem.setAttribute("data-delete", "true");
+          // console.log(data[i].title);
+          dataYes.addEventListener("click", () => {
+            fetch(`http://localhost:3000/articles/${data[i].id}`, {
+              method: "DELETE",
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                displayTitles();
+              });
+          });
+  
+          dataNo.addEventListener("click", () => {
+            deleteItem.setAttribute("data-delete", "false");
+          });
         });
+        
 
         // ADD ARTICLE
         createArticle.addEventListener("click", () => {
           // console.log(document.querySelector("[data-add]"));
-          document.querySelector('[data-add]').setAttribute('data-add', 'true');
+          document.querySelector("[data-add]").setAttribute("data-add", "true");
 
-          addButton.addEventListener('click',()=>{
+          addButton.addEventListener("click", () => {
             console.log(data[i].id);
             fetch(`http://localhost:3000/articles`, {
               method: "POST",
@@ -125,7 +133,8 @@ function displayTitles() {
                 id: document.querySelector("[data-id-add]").value,
                 author: document.querySelector("[data-author-add]").value,
                 title: document.querySelector("[data-title-add]").value,
-                description: document.querySelector("[data-description-add]").value,
+                description: document.querySelector("[data-description-add]")
+                  .value,
                 urlToImage: document.querySelector("[data-url-add]").value,
                 id: document.querySelector("[data-image-url-add]").value,
                 publishedAt: document.querySelector("[data-publish-add]").value,
@@ -138,9 +147,11 @@ function displayTitles() {
               .then((res) => res.json())
               .then((data) => {
                 displayTitles();
-                document.querySelector('[data-add]').setAttribute('data-add', 'false');
+                document
+                  .querySelector("[data-add]")
+                  .setAttribute("data-add", "false");
               });
-          })
+          });
         });
       }
     });
@@ -157,5 +168,5 @@ removeEdit.addEventListener("click", () => {
 
 const removeAdd = document.querySelector(".remove-add");
 removeAdd.addEventListener("click", () => {
-  document.querySelector('[data-add]').setAttribute("data-add", "false");
+  document.querySelector("[data-add]").setAttribute("data-add", "false");
 });
