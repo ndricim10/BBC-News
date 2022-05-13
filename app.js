@@ -29,14 +29,17 @@ function displayFirstSection() {
     .then((res) => res.json())
     .then((data) => {
         // console.log(data[0]);
+        let timeAgo =  new Date(Date.now()) -new Date(`${data[0].publishedAt}`).getTime()
+      console.log(timeAgo);
         dataFirstA.href=data[0].url
       leftSectionH1.innerHTML = data[0].title;
       rightSectionImg.src=data[0].urlToImage
       leftSectionSpan.innerHTML = data[0].description;
-      leftSectionTime.innerHTML = data[0].publishedAt;
+      leftSectionTime.innerHTML = timeSince(new Date(Date.now()-timeAgo))
       author.innerHTML = data[0].author;
       
-
+      
+      
       // RIGHT SECTION
       for(let i=1; i<4; i++){
         var aDay =  new Date(Date.now()) -new Date(`${data[i].publishedAt}`).getTime()
@@ -108,7 +111,7 @@ function timeSince(date) {
   var interval = seconds / 31536000;
 
   if (interval > 1) {
-    return Math.floor(interval) + " years";
+    return Math.floor(interval) + "y";
   }
   interval = seconds / 2592000;
   if (interval > 1) {
@@ -116,15 +119,15 @@ function timeSince(date) {
   }
   interval = seconds / 86400;
   if (interval > 1) {
-    return Math.floor(interval) + " days";
+    return Math.floor(interval) + "d";
   }
   interval = seconds / 3600;
   if (interval > 1) {
-    return Math.floor(interval) + " hours";
+    return Math.floor(interval) + "h";
   }
   interval = seconds / 60;
   if (interval > 1) {
-    return Math.floor(interval) + " minutes";
+    return Math.floor(interval) + "min";
   }
   return Math.floor(seconds) + " seconds";
 }
