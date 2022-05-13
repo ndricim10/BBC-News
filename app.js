@@ -39,11 +39,13 @@ function displayFirstSection() {
 
       // RIGHT SECTION
       for(let i=1; i<4; i++){
-        console.log(data[i].title);
-        // lgLeft.innerHTML=''
+        var aDay =  new Date(Date.now()) -new Date(`${data[i].publishedAt}`).getTime()
+        
+        
+        // console.log(timeSince(new Date(aDay - Date.now())), aDay);
         lgLeft.innerHTML+=`
         <div>
-        <span class="minutes">${data[i].publishedAt}</span>
+        <span class="minutes">${timeSince(new Date(Date.now()-aDay))}</span>
     <a href="${data[i].url}" target="_blank"><span class="title-u">${data[i].title}</span></a>
     </div>`
       }
@@ -82,6 +84,7 @@ search.addEventListener("input", (e) => {
             searchDisplay.innerHTML=''
             for(let i=0; i<10;i++){
                 // console.log(dataSearch);
+               ;
                 searchDisplay.innerHTML+=`<a href="${dataSearch[i].url}" target="_blank" data-link><span class="title">
                 ${dataSearch[i].title} </span></a>`
                 const linked = document.querySelector('[data-link]')
@@ -97,6 +100,34 @@ search.addEventListener("input", (e) => {
 // });
 
 
+
+function timeSince(date) {
+
+  var seconds = Math.floor((new Date() - date) / 1000);
+
+  var interval = seconds / 31536000;
+
+  if (interval > 1) {
+    return Math.floor(interval) + " years";
+  }
+  interval = seconds / 2592000;
+  if (interval > 1) {
+    return Math.floor(interval) + " months";
+  }
+  interval = seconds / 86400;
+  if (interval > 1) {
+    return Math.floor(interval) + " days";
+  }
+  interval = seconds / 3600;
+  if (interval > 1) {
+    return Math.floor(interval) + " hours";
+  }
+  interval = seconds / 60;
+  if (interval > 1) {
+    return Math.floor(interval) + " minutes";
+  }
+  return Math.floor(seconds) + " seconds";
+}
 
 
 

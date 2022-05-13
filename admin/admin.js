@@ -13,6 +13,7 @@ const deleteItem = document.querySelector(".delete-item");
 const dataYes = document.querySelector("[data-yes]");
 const dataNo = document.querySelector("[data-no]");
 const removeAdd = document.querySelector(".remove-add");
+const logOut = document.querySelector('[data-go-to-login]')
 
 
 // Display articles
@@ -20,7 +21,6 @@ function displayTitles() {
   fetch(`http://localhost:3000/articles?_order=desc&_sort=publishedAt`)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       titles.innerHTML = ` 
       <span class="number-articles">${data.length} articles</span>
       <tr>
@@ -125,7 +125,6 @@ function displayTitles() {
           });
         });
         
-
         // ADD ARTICLE
         createArticle.addEventListener("click", () => {
           // console.log(document.querySelector("[data-add]"));
@@ -139,8 +138,7 @@ function displayTitles() {
                 id: document.querySelector("[data-id-add]").value,
                 author: document.querySelector("[data-author-add]").value,
                 title: document.querySelector("[data-title-add]").value,
-                description: document.querySelector("[data-description-add]")
-                  .value,
+                description: document.querySelector("[data-description-add]").value,
                 urlToImage: document.querySelector("[data-url-add]").value,
                 id: document.querySelector("[data-image-url-add]").value,
                 publishedAt: document.querySelector("[data-publish-add]").value,
@@ -156,7 +154,14 @@ function displayTitles() {
               });
           });
         });
+
+        let fullDate = data[i].publishedAt
+        // console.log(fullDate);
+
+        // fullDate.getFullYear() 
+
       }
+      
     });
 }
 displayTitles();
@@ -172,3 +177,10 @@ removeEdit.addEventListener("click", () => {
 removeAdd.addEventListener("click", () => {
   document.querySelector("[data-add]").setAttribute("data-add", "false");
 });
+
+function Login(){
+  window.location.href='http://127.0.0.1:5501/admin-login/login.html'
+}
+
+
+logOut.addEventListener('click', Login)

@@ -13,32 +13,41 @@ fetch(`${adminURL}`).then(res=>res.json())
   loginInput.addEventListener('keyup', (e)=>{
       e=e.key
 
-      if(e=='Enter'){
-          validate()
+      if(validate()){
+        goToAdmin()
       }
   })
-
   pass.addEventListener('keyup', (e)=>{
     e=e.key
 
     if(e=='Enter'){
         validate()
+        if(validate()){
+          goToAdmin()
+        }
     }
 })
-
 
   function validate(){
     if(loginInput.value===data[0].email && pass.value===data[0].password){
         errorSpan.setAttribute('data-display-span', 'false')
+        let adminValues = localStorage.setItem('getValues', JSON.stringify(loginInput.value))
         loginInput.value=''
         pass.value=''
-        document.querySelector('[data-home]').href='../admin/admin.html'
+        goToAdmin()
       }
   
       else{
         errorSpan.setAttribute('data-display-span', 'true')
-        
       }
 }
 
 })
+
+function goToAdmin(){
+  window.location.href='http://127.0.0.1:5501/admin/admin.html'
+}
+
+function gotoLogin(){
+  window.location.href='http://127.0.0.1:5501/admin-login/login.html'
+}
