@@ -20,49 +20,69 @@ section {
   height: 100vh;
 }
 .login {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
-    span[data-display-span="false"] {
+  span[data-display-span="false"] {
+    display: none;
+  }
+
+  span[data-display-span="true"] {
+    color: red;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  input {
+    max-width: 100%;
+    width: 200px;
+    outline: none;
+    border: 1px var(--main-color) solid;
+    border-radius: 10px;
+    height: 35px;
+    padding-left: 1rem;
+    border: 1px var(--main-color) solid;
+
+    &::placeholder {
+      text-align: center;
+    }
+  }
+
+  .password{
+    border: 1px var(--main-color) solid;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+    border-radius: 10px;
+    input{
+      border: none;
+      width: 170px;
+    }
+    i[data-visible="true"]{
+      cursor: pointer;
+      opacity: .8;
+    }
+    i[data-visible="false"]{
       display: none;
     }
+  }
 
-    span[data-display-span="true"] {
-      color: red;
+  a {
+    button {
+      border: none;
+      background-color: var(--main-color);
+      color: white;
       font-weight: 700;
-      font-size: 0.9rem;
-    }
-
-    input {
-      max-width: 100%;
-      width: 200px;
-      outline: none;
-      border: 1px var(--main-color) solid;
-      border-radius: 10px;
       height: 35px;
-      padding-left: 1rem;
-      border: 1px var(--main-color) solid;
+      border-radius: 10px;
+      width: 100%;
 
-      &::placeholder {
-        text-align: center;
-      }
-    }
-
-    a {
-      button {
-        border: none;
-        background-color: var(--main-color);
-        color: white;
-        font-weight: 700;
-        height: 35px;
-        border-radius: 10px;
-        width: 100%;
-
-        &:hover {
-          background-color: #ddd;
-          color: var(--main-color);
-        }
+      &:hover {
+        background-color: #ddd;
+        color: var(--main-color);
       }
     }
   }
+}

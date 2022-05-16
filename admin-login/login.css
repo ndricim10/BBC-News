@@ -45,6 +45,25 @@ section {
 .login input::placeholder {
   text-align: center;
 }
+.login .password {
+  border: 1px var(--main-color) solid;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+  border-radius: 10px;
+}
+.login .password input {
+  border: none;
+  width: 170px;
+}
+.login .password i[data-visible=true] {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.login .password i[data-visible=false] {
+  display: none;
+}
 .login a button {
   border: none;
   background-color: var(--main-color);

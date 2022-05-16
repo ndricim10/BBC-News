@@ -3,11 +3,10 @@ const loginInput = document.querySelector('[data-email]')
 const pass = document.querySelector('[data-psw]')
 const errorSpan = document.querySelector('[data-display-span]')
 const loginBtn = document.querySelector('[data-btn]')
-
+const visibility = document.querySelector('[data-visible]')
 
 fetch(`${adminURL}`).then(res=>res.json())
 .then(data=>{
-  console.log(data[0]);
 
   loginBtn.addEventListener('click', validate)
   loginInput.addEventListener('keyup', (e)=>{
@@ -28,6 +27,24 @@ fetch(`${adminURL}`).then(res=>res.json())
     }
 })
 
+pass.addEventListener('input', (e)=>{
+  e=event.target.value;
+  if(e===''){
+    visibility.setAttribute('data-visible', 'false')
+  }
+  else{
+    visibility.setAttribute('data-visible', 'true')
+  }
+})
+
+visibility.addEventListener('click', ()=>{
+  if(pass.type==='password'){
+    pass.type='text'
+  }
+  else{
+    pass.type='password'
+  }
+})
   function validate(){
     if(loginInput.value===data[0].email && pass.value===data[0].password){
         errorSpan.setAttribute('data-display-span', 'false')

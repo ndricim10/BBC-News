@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,25 +13,30 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Admin - login</title>
 </head>
+
 <body>
-    
+
     <div class="search-display" data-display="false">
         <!-- <a href="#" target="_blank" data-link><span target="_blank" class="title">${dataSearch.data[i].published_at} ${dataSearch.data[i].title} </span></a> -->
-        
+
     </div>
 
     <section>
         <div class="login">
             <input type="email" placeholder="Enter your email" data-email>
-        <input type="password" placeholder="Enter your password" data-psw>
-        <a href="#" data-home><button data-btn>Log In</button></a>
-        <span data-display-span="false">Please put a valid email and password</span>
+            <div class="password">
+                <input type="password" placeholder="Enter your password" data-psw>
+                <i class="fas fa-eye" data-visible="false"></i>
+            </div>
+            <a href="#" data-home><button data-btn>Log In</button></a>
+            <span data-display-span="false">Please put a valid email and password</span>
         </div>
     </section>
 
-    
+
     <script src="../app.js"></script>
     <script src="./login.js"></script>
     <script src="../admin/admin.js"></script>
 </body>
+
 </html>
