@@ -1,88 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
     <title>BBC News</title>
-</head>
-<body>
-
+  </head>
+  <body class="container-fluid">
     <header class="container-fluid">
-       <a href="./index.html"> <div class="bbc-logo">
-            <span>B</span>
-            <span>B</span>
-            <span>C</span>
-            <span class="news">NEWS</span>
-        </div></a>
-        <!-- <div class="sign-in">
+      <a href="./index.html">
+        <div class="bbc-logo">
+          <span>B</span>
+          <span>B</span>
+          <span>C</span>
+          <span class="news">NEWS</span>
+        </div></a
+      >
+      <!-- <div class="sign-in">
             <i class="fas fa-user"></i>
             <a href="./admin-login/login.html">Sign in</a>
         </div> -->
-        <div class="search">
-            <i class="fal fa-search"></i>
-            <input type="search" id="search" placeholder="Search in BBC">
-        </div>
+      <div class="search">
+        <i class="fal fa-search"></i>
+        <input type="search" id="search" placeholder="Search in BBC" />
+      </div>
     </header>
 
-
     <section class="container-fluid first-section">
-        <div class="row">
-            <div class="col-sm-5 col-lg-2 left-section">
-               <a href="" data-first-a target="_blank">
-                <h1>
-                    Ukraine's EU bid......
-                </h1>
-                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam iste maiores asperiores tempore! A pariatur, sed neque aliquam, vero numquam beatae vitae laudantium, eum tenetur asperiores ducimus illo. Nostrum, voluptas!</span>
-                
-               </a>
-                <div class="time">
-                    <i class="fal fa-clock"></i>
-                    <span class="span-time">3h</span>
-                    <span class="author"></span>
-                </div>
-                
-            </div>
-            <div class="col-sm-7 col-lg-4 right-section">
-                <img src="./images/firstImage.jpg">
-            </div>
-
-            <div class="col-lg-3 lg3">
-                <div class="lg3-left">
-                    
-                </div>
-
-            </div>
-            <div class="col-lg-3 lg3">
-                <div class="lg3-right">
-                    
-                </div>
-            </div>
-
+      <div class="row">
+        <div class="col-sm-5 col-lg-2 left-section">
+          <a href="" data-first-a target="_blank">
+            <h1>Ukraine's EU bid......</h1>
+            <span
+              >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+              iste maiores asperiores tempore! A pariatur, sed neque aliquam,
+              vero numquam beatae vitae laudantium, eum tenetur asperiores
+              ducimus illo. Nostrum, voluptas!</span
+            >
+          </a>
+          <div class="time">
+            <i class="fal fa-clock"></i>
+            <span class="span-time">3h</span>
+            <span class="author"></span>
+          </div>
         </div>
+        <div class="col-sm-7 col-lg-4 right-section">
+          <img src="./images/firstImage.jpg" />
+        </div>
+
+        <div class="col-lg-3 lg3">
+          <div class="lg3-left"></div>
+        </div>
+        <div class="col-lg-3 lg3">
+          <div class="lg3-right"></div>
+        </div>
+      </div>
     </section>
 
     <section class="container-fluid left-links">
-        <div class="row">
-            <ul class="col-sm-8">
-                <li data-first-link class="col-sm-6"><a href="#" >Russia</a></li>
-                <li data-second-link class="col-sm-6"><a href="#">Russia222</a></li>
-            </ul>
-        </div>
+      <div class="row">
+        <ul class="col-sm-8">
+          <li data-first-link class="col-sm-6"><a href="#">Russia</a></li>
+          <li data-second-link class="col-sm-6"><a href="#">Russia222</a></li>
+        </ul>
+      </div>
     </section>
 
+    <div class="categories container-fluid">
+      <h3 class="full-story">War in Ukraine</h3>
+      <div class="categories-grid">
+        <div class="lg3-right">
+          <a href="#">
+            <img data-image-categories />
+            <h4 data-h4-categories></h4>
+          </a>
+        </div>
 
+        <div class="lg3-right">
+          <a href="#">
+            <img data-image-categories />
+            <h4 data-h4-categories></h4>
+          </a>
+        </div>
+
+        <div class="lg3-right">
+          <a href="#">
+            <img data-image-categories />
+            <h4 data-h4-categories></h4>
+          </a>
+        </div>
+
+        <div class="flex-right-categories">
+          <div class="lg3-right">
+            <a href="#">
+              <img data-image-categories />
+              <h4 data-h4-categories></h4>
+            </a>
+          </div>
+
+          <div class="lg3-right">
+            <a href="#">
+              <img data-image-categories />
+              <h4 data-h4-categories></h4>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="container-fluid business-section">
+        <h2 class="full-story">Full story</h2>
+
+      <div class="business">
+        <div class="lg3-right main-div">
+          <img data-image-business />
+          <h4 data-title-business></h4>
+        </div>
+        <div class="lg3-right div-1">
+          <img data-image-business />
+          <h4 data-title-business></h4>
+        </div>
+        <div class="lg3-right div-2">
+          <img data-image-business />
+          <h4 data-title-business></h4>
+        </div>
+        <div class="lg3-right div-3">
+          <img data-image-business />
+          <h4 data-title-business></h4>
+        </div>
+        <div class="lg3-right div-4">
+          <img data-image-business />
+          <h4 data-title-business></h4>
+        </div>
+        <div class="lg3-right div-5">
+          <img data-image-business />
+          <h4 data-title-business></h4>
+        </div>
+        <div class="lg3-right div-6">
+          <img data-image-business />
+          <h4 data-title-business></h4>
+        </div>
+      </div>
+    </section>
 
     <div class="search-display" data-display="false">
-        <!-- <a href="#" target="_blank" data-link><span target="_blank" class="title">${dataSearch.data[i].published_at} ${dataSearch.data[i].title} </span></a> -->
-        
+      <!-- <a href="#" target="_blank" data-link><span target="_blank" class="title">${dataSearch.data[i].published_at} ${dataSearch.data[i].title} </span></a> -->
     </div>
-    
+
     <script src="./app.js"></script>
-</body>
+  </body>
 </html>
