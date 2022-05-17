@@ -2,12 +2,11 @@ const newsAPI = 'feaaecacbf0d46b3bc7d60d0f1cecfcb'
 const newsURL = 'https://newsapi.org/v2'
 const articlesURL = 'http://localhost:3000/articles'
 const adminURL = 'http://localhost:3000/admin'
+
+
 const bbcLogo = document.querySelector('.bbc-logo')
 bbcLogo.href = "./index.html"
-const keyApi = "a128deb2acfa4a31a8ec09a2f4614ccd";
-const mediaStackAPI = "f681c422852f5ce7a6841f06c83caa95";
 const getData = document.getElementById("getdata");
-const URL = "https://newsapi.org/v2";
 const btn = document.querySelector("button");
 const leftSectionH1 = document.querySelector(".left-section h1");
 const rightSectionImg = document.querySelector(".right-section img");
@@ -30,51 +29,51 @@ const dataPopular = document.querySelectorAll('[data-popular]')
 
 
 function displayFirstSection() {
-  fetch(`${articlesURL}?_sort=publishedAt&_order=desc&q=u`)
+  fetch(`https://newsapi.org/v2/top-headlines?q=ukraine&apiKey=feaaecacbf0d46b3bc7d60d0f1cecfcb&sortby=publishedAt&language=en`)
     .then((res) => res.json())
     .then((data) => {
-        // console.log(data[0]);
-        let timeAgo =  new Date(Date.now()) -new Date(`${data[0].publishedAt}`).getTime()
+        // console.log(data.articles[0]);
+        let timeAgo =  new Date(Date.now()) -new Date(`${data.articles[0].publishedAt}`).getTime()
       // console.log(timeAgo);
-        dataFirstA.href=data[0].url
-      leftSectionH1.innerHTML = data[0].title;
-      rightSectionImg.src=data[0].urlToImage
-      leftSectionSpan.innerHTML = data[0].description;
+        dataFirstA.href=data.articles[0].url
+      leftSectionH1.innerHTML = data.articles[0].title;
+      rightSectionImg.src=data.articles[0].urlToImage
+      leftSectionSpan.innerHTML = data.articles[0].description;
       leftSectionTime.innerHTML = timeSince(new Date(Date.now()-timeAgo))
-      author.innerHTML = data[0].author;
+      author.innerHTML = data.articles[0].author;
       
       
       // RIGHT SECTION
       for(let i=1; i<4; i++){
-        var aDay =  new Date(Date.now()) -new Date(`${data[i].publishedAt}`).getTime()
+        var aDay =  new Date(Date.now()) -new Date(`${data.articles[i].publishedAt}`).getTime()
         
         
         // console.log(timeSince(new Date(aDay - Date.now())), aDay);
         lgLeft.innerHTML+=`
         <div>
         <span class="minutes">${timeSince(new Date(Date.now()-aDay))}</span>
-    <a href="${data[i].url}" target="_blank"><span class="title-u">${data[i].title}</span></a>
+    <a href="${data.articles[i].url}" target="_blank"><span class="title-u">${data.articles[i].title}</span></a>
     </div>`
       }
 
 
       // lg-3-right
 
-      lgRight.innerHTML=`<a href="${data[4].url}" target="_blank">
-      <img src="${data[4].urlToImage}">
-  <h4>${data[4].title}</h4>
-  <span>${data[4].description}</span>
+      lgRight.innerHTML=`<a href="${data.articles[4].url}" target="_blank">
+      <img src="${data.articles[4].urlToImage}">
+  <h4>${data.articles[4].title}</h4>
+  <span>${data.articles[4].description}</span>
 
   <div class="time">
       <i class="fal fa-clock"></i>
       <span class="span-time">${timeSince(new Date(Date.now()-aDay))}</span>
-      <span class="author">${data[4].author}</span>
+      <span class="author">${data.articles[4].author}</span>
   </div>
   </a>`
 
       // SECOND SECTION
-      dataFirstLink.innerText=data[1].title
-      dataSecondLink.innerText=data[3].title
+      dataFirstLink.innerText=data.articles[1].title
+      dataSecondLink.innerText=data.articles[3].title
 
      
      
@@ -85,6 +84,13 @@ function displayFirstSection() {
 }
 displayFirstSection();
 
+function test(){
+  fetch(`https://newsapi.org/v2/top-headlines?q=ukraine&apiKey=feaaecacbf0d46b3bc7d60d0f1cecfcb&sortby=publishedAt`).then(res=>res.json())
+  .then(data=>{
+    
+  })
+}
+// test()
 
 
 const h4Categories = document.querySelectorAll('[data-h4-categories]')
