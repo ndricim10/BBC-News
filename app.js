@@ -121,11 +121,12 @@ sportSection()
 
 
 function mostPopular(){
-  fetch(`${articlesURL}?_sort=publishedAt&_order=desc`)
+  fetch(`https://newsapi.org/v2/everything?apiKey=feaaecacbf0d46b3bc7d60d0f1cecfcb&sortby=popularity&language=en&q=ukraine`)
   .then((res) => res.json())
   .then((data) => {
+    console.log(data);
     for(let i=0;i<dataPopular.length;i++){
-      dataPopular[i].innerHTML=data[i].title
+      dataPopular[i].innerHTML=data.articles[i].title
     }
   })
   }
@@ -137,17 +138,16 @@ search.addEventListener("input", (e) => {
       searchDisplay.setAttribute("data-display", "false");
     } else {
       searchDisplay.setAttribute("data-display", "true");
-      fetch(`http://localhost:3000/articles?q=${e}&_sort=publishedAt&_order=desc`)
+      fetch(`${newsURL}/everything?q=${e}&apiKey=feaaecacbf0d46b3bc7d60d0f1cecfcb&sortBy=publishedAt&language=en`)
         .then((res) => res.json())
         .then((dataSearch) => {
             searchDisplay.innerHTML=''
-            for(let i=0; i<10;i++){
-                console.log(dataSearch[i].publishedAt);
-               ;
-                searchDisplay.innerHTML+=`<a href="${dataSearch[i].url}" target="_blank" data-link><span class="title">
-                ${dataSearch[i].title} </span></a>`
+            for(let i=0; i<dataSearch.articles.length;i++){
+                // console.log(dataSearch.articles[i].publishedAt);
+                searchDisplay.innerHTML+=`<a href="${dataSearch.articles[i].url}" target="_blank" data-link><span class="title">
+                ${dataSearch.articles[i].title} </span></a>`
                 const linked = document.querySelector('[data-link]')
-                linked.href=dataSearch[i].url
+                linked.href=dataSearch.articles[i].url
             }
         });
     }

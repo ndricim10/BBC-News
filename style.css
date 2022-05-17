@@ -147,9 +147,11 @@ header .search input::placeholder {
   align-items: center;
   color: white;
   gap: 10px;
-  position: absolute;
+  position: fixed;
+  overflow-y: scroll;
+  max-height: 60vh;
   top: 65px;
-  right: 0;
+  right: 10px;
   z-index: 99999;
   width: 70%;
   overflow-y: auto;
@@ -166,11 +168,11 @@ header .search input::placeholder {
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  font-size: 0.9rem;
 }
 .search-display[data-display=true] a span:hover {
   background-color: white;
   color: var(--main-color);
-  font-weight: 700;
 }
 
 .search-display[data-display=false] {
