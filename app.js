@@ -23,6 +23,12 @@ const lgRight = document.querySelector('.lg3-right')
 const dataFirstA = document.querySelector('[data-first-a]')
 const endSection = document.querySelector('.end-section')
 
+const imageSport = document.querySelectorAll('[data-image-sport]')
+const titleSport = document.querySelectorAll('[data-title-sport]')
+
+const dataPopular = document.querySelectorAll('[data-popular]')
+
+
 function displayFirstSection() {
   fetch(`${articlesURL}?_sort=publishedAt&_order=desc&q=u`)
     .then((res) => res.json())
@@ -70,14 +76,20 @@ function displayFirstSection() {
       dataFirstLink.innerText=data[1].title
       dataSecondLink.innerText=data[3].title
 
-      // THIRD SECTION
+     
      
     });
+
+    // SPORT SECTION
+   
 }
 displayFirstSection();
 
+
+
 const h4Categories = document.querySelectorAll('[data-h4-categories]')
 const imageCategories = document.querySelectorAll('[data-image-categories]')
+
 function categories(){
   fetch(`${articlesURL}?q=u`).then(res=>res.json()).then(data=>{
     for(let i=0;i<imageCategories.length;i++){
@@ -88,6 +100,30 @@ function categories(){
 }
 categories()
 
+function sportSection(){
+  fetch(`${articlesURL}?_sort=publishedAt&_order=desc&q=p`)
+  .then((res) => res.json())
+  .then((data) => {
+    for(let i=0; i<imageSport.length;i++){
+      // console.log(data[i].publishedAt);
+      imageSport[i].src=data[i].urlToImage
+      titleSport[i].innerHTML=data[i].title
+    }
+  })
+}
+sportSection()
+
+
+function mostPopular(){
+  fetch(`${articlesURL}?_sort=publishedAt&_order=desc`)
+  .then((res) => res.json())
+  .then((data) => {
+    for(let i=0;i<dataPopular.length;i++){
+      dataPopular[i].innerHTML=data[i].title
+    }
+  })
+  }
+mostPopular()
 
 search.addEventListener("input", (e) => {
     e = event.target.value;
