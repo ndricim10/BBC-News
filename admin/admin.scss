@@ -132,13 +132,14 @@ header {
 .display-view[data-view="true"] {
   background-color: white;
   height: max-content;
+  max-height: 80vh;
   position: fixed;
   top: 60px;
   left: 10px;
   right: 10px;
   transition: 500ms ease-in-out;
   padding-inline: 0.75rem;
-  overflow: scroll;
+  overflow-y: scroll;
 
 
   .even {
@@ -203,6 +204,8 @@ header {
   left: 10px;
   right: 10px;
   top: 70px;
+  max-height: 80vh;
+  overflow-y: scroll;
   
 
   textarea {
@@ -274,8 +277,11 @@ header {
   color: var(--main-color);
   left: 10px;
   right: 10px;
-  top: 10px;
+  top: 60px;
+  bottom: 20px;
   z-index: 9999999999;
+  max-height: 90vh;
+  overflow-y: scroll;
 
   textarea {
     height: max-content;

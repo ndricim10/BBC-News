@@ -1,18 +1,12 @@
 {
   "articles": [
     {
-      "source": {
-        "id": "the-verge",
-        "name": "The Verge"
-      },
-      "id": 1,
-      "author": "Justine Calma",
       "title": "Why fossil fuel companies see green in Bitcoin mining projects",
-      "description": "ExxonMobil and other fossil fuel companies have turned to Bitcoin mining to address a gas problem. But their plans come with risks.",
-      "url": "https://www.theverge.com/2022/5/4/23055761/exxonmobil-cryptomining-bitcoin-methane-gas",
+      "content": "A Bitcoin mining site powered by otherwise lost gas from an oil well near Linden, Texas, on April 4th, 2022. | Photo by FRANCOIS PICARD/AFP via Getty Images\n\n \n\n Of all the corporate climate hype fl… [+6544 chars]",
+      "author": "Justine Calma",
       "urlToImage": "https://cdn.vox-cdn.com/thumbor/BZdljrBbt8tBl6oCCnckcDKqe6g=/0x90:4608x2503/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/23435975/1240300988.jpg",
-      "publishedAt": "2022-05-04T12:00:00Z",
-      "content": "A Bitcoin mining site powered by otherwise lost gas from an oil well near Linden, Texas, on April 4th, 2022. | Photo by FRANCOIS PICARD/AFP via Getty Images\r\n\n \n\n Of all the corporate climate hype fl… [+6544 chars]"
+      "description": "ExxonMobil and other fossil fuel companies have turned to Bitcoin mining to address a gas problem. But their plans come with risks.",
+      "id": 1
     },
     {
       "source": {
@@ -43,12 +37,11 @@
       "content": "Warren Buffett has always been a bitcoin skeptic. But the billionaire investor had his most harsh words yet for the cryptocurrency over the weekend. Buffett made it clear that his opposition to crypt… [+2297 chars]"
     },
     {
-      "title": "Bitcoin value drops by 50% since November peak",
-      "content": "Image source, Getty Images\nThe value of Bitcoin continued to fall over the weekend as it dropped below $34,000 (£27,630), according to the Coinbase cryptocurrency exchange.\nThe world's largest cryp… [+2164 chars]",
-      "author": "bbcnews - author",
-      "publishedAt": "2022-05-13T05:33:00Z",
-      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/8362/production/_124643633_gettyimages-1384896168.jpg",
-      "description": "The slide in the value of cryptocurrencies comes as stock markets around the world have also fallen.",
+      "title": "Why fossil fuel companies see green in Bitcoin mining projects",
+      "content": "A Bitcoin mining site powered by otherwise lost gas from an oil well near Linden, Texas, on April 4th, 2022. | Photo by FRANCOIS PICARD/AFP via Getty Images\n\n \n\n Of all the corporate climate hype fl… [+6544 chars]",
+      "author": "Justine Calma",
+      "urlToImage": "https://cdn.vox-cdn.com/thumbor/BZdljrBbt8tBl6oCCnckcDKqe6g=/0x90:4608x2503/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/23435975/1240300988.jpg",
+      "description": "ExxonMobil and other fossil fuel companies have turned to Bitcoin mining to address a gas problem. But their plans come with risks.",
       "id": 4
     },
     {
