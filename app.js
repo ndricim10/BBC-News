@@ -107,13 +107,13 @@ function categories(){
 categories()
 
 function sportSection(){
-  fetch(`${articlesURL}?_sort=publishedAt&_order=desc&q=p`)
-  .then((res) => res.json())
-  .then((data) => {
+  fetch(`https://newsapi.org/v2/top-headlines?apiKey=feaaecacbf0d46b3bc7d60d0f1cecfcb&language=en&category=sports&sortBy=publishedAt`)
+    .then((res) => res.json())
+    .then((data) => {
     for(let i=0; i<imageSport.length;i++){
       // console.log(data[i].publishedAt);
-      imageSport[i].src=data[i].urlToImage
-      titleSport[i].innerHTML=data[i].title
+      imageSport[i].src=data.articles[i].urlToImage
+      titleSport[i].innerHTML=data.articles[i].title
     }
   })
 }
@@ -124,7 +124,6 @@ function mostPopular(){
   fetch(`https://newsapi.org/v2/everything?apiKey=feaaecacbf0d46b3bc7d60d0f1cecfcb&sortby=popularity&language=en&q=ukraine`)
   .then((res) => res.json())
   .then((data) => {
-    console.log(data);
     for(let i=0;i<dataPopular.length;i++){
       dataPopular[i].innerHTML=data.articles[i].title
     }
@@ -155,14 +154,20 @@ search.addEventListener("input", (e) => {
 
   const titleBusiness = document.querySelectorAll('[data-title-business]')
   const imageBusiness = document.querySelectorAll('[data-image-business]')
-  fetch(`${articlesURL}?_sort=publishedAt&_order=desc`).then(res=>res.json()).then(data=>{
-    
-  for(let i=0; i<titleBusiness.length;i++){
-    titleBusiness[i].innerHTML=data[i].title
-    imageBusiness[i].src=data[i].urlToImage
+  
+  function business(){
+    fetch(`https://newsapi.org/v2/top-headlines?apiKey=feaaecacbf0d46b3bc7d60d0f1cecfcb&language=en&category=business&sortBy=publishedAt`)
+    .then((res) => res.json())
+    .then((data) => {
+      
+    console.log(data);
+      for(let i=0; i<titleBusiness.length; i++){
+        titleBusiness[i].innerHTML=data.articles[i].title
+        imageBusiness[i].src=data.articles[i].urlToImage
+      }
+      })
   }
-  })
-
+business()
 // search.addEventListener("focusout", () => {
 //   searchDisplay.setAttribute("data-display", "false");
 // });
