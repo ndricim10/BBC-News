@@ -70,32 +70,69 @@ header a .log-out:hover {
 }
 
 .filter {
-  margin-top: 80px;
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.filter .btn-filter[data-div-filter=true] {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.filter .btn-filter[data-div-filter=true] button {
+  width: 150px;
+  border: 2px var(--main-color) solid;
+  outline: none;
+  border-radius: 10px;
+  color: var(--main-color);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.filter .btn-filter[data-div-filter=true] button:hover {
+  color: white;
+  background-color: var(--main-color);
+}
+.filter .btn-filter[data-div-filter=false] {
+  display: none;
 }
 .filter .filter-articles {
+  position: absolute;
+  right: 10px;
+  top: 80px;
   display: flex;
-  justify-content: flex-end;
   gap: 5px;
   align-items: center;
   font-weight: 700;
   cursor: pointer;
-}
-.filter .filter-articles i {
+  border: 2px var(--main-color) solid;
+  width: max-content;
+  float: right !important;
+  padding: 0.5rem;
+  border-radius: 10px;
   color: var(--main-color);
+  background-color: white;
+  margin-bottom: 30px;
+}
+.filter .filter-articles:hover {
+  color: white;
+  background-color: var(--main-color);
 }
 .filter .filter-by[data-filter=true] {
   gap: 20px;
 }
-.filter .filter-by[data-filter=true] .from-to, .filter .filter-by[data-filter=true] .sort-by, .filter .filter-by[data-filter=true] .page-size, .filter .filter-by[data-filter=true] .filter-search {
+.filter .filter-by[data-filter=true] .from-to,
+.filter .filter-by[data-filter=true] .sort-by,
+.filter .filter-by[data-filter=true] .page-size,
+.filter .filter-by[data-filter=true] .filter-search {
   display: flex;
   align-items: center;
 }
 .filter .filter-by[data-filter=true] input {
   height: 30px;
   outline: none;
-}
-.filter .filter-by[data-filter=true] input::placeholder {
-  padding-left: 1rem;
+  text-align: center;
 }
 .filter .filter-by[data-filter=true] .filterBy {
   display: grid;
@@ -128,7 +165,7 @@ header a .log-out:hover {
 }
 
 .display-api {
-  margin-top: 100px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
 }
@@ -212,7 +249,24 @@ header a .log-out:hover {
     transform: unset;
   }
 
-  .filter .filter-by[data-filter=true] .from-to, .filter .filter-by[data-filter=true] .sort-by, .filter .filter-by[data-filter=true] .page-size, .filter .filter-by[data-filter=true] .filter-search {
+  .filter-by[data-filter=true] {
+    display: flex;
+    flex-direction: column;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .filter-by[data-filter=true] .filter-search {
+    width: 400px;
+  }
+  .filter-by[data-filter=true] .filter-search input {
+    width: 100%;
+  }
+}
+@media (max-width: 1000px) {
+  .filter .filter-by[data-filter=true] .from-to,
+.filter .filter-by[data-filter=true] .sort-by,
+.filter .filter-by[data-filter=true] .page-size,
+.filter .filter-by[data-filter=true] .filter-search {
     display: flex;
     align-items: unset;
   }

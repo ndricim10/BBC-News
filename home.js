@@ -14,6 +14,21 @@ const searchDisplay = document.querySelector(".search-display");
 
 let currentDate = new Date();
 
+const formatAMPM = (date) => { //to format the time in AM or PM
+  let hours = date.getHours();
+  let minutes = date.getMinutes();    
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+
+  hours %= 12;
+  hours = hours < 10 ? `0${hours}` : hours || 12;    
+  minutes = minutes < 10 ? `0${minutes}` : minutes;
+
+  const strTime = `${hours}:${minutes} ${ampm}`;
+
+  return strTime;
+};
+
+
 function displaySearch() {
   fetch(`http://api.mediastack.com/v1/news?access_key=${mediaStackAPI}
 &languages=en

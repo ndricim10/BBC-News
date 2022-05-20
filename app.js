@@ -84,13 +84,6 @@ function displayFirstSection() {
 }
 displayFirstSection();
 
-function test(){
-  fetch(`https://newsapi.org/v2/top-headlines?q=ukraine&apiKey=feaaecacbf0d46b3bc7d60d0f1cecfcb&sortby=publishedAt`).then(res=>res.json())
-  .then(data=>{
-    
-  })
-}
-// test()
 
 
 const h4Categories = document.querySelectorAll('[data-h4-categories]')
@@ -175,7 +168,6 @@ business()
 
 
 function timeSince(date) {
-
   var seconds = Math.floor((new Date() - date) / 1000);
 
   var interval = seconds / 31536000;

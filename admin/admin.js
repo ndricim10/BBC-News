@@ -17,25 +17,37 @@ const logOut = document.querySelector('[data-go-to-login]'),
 filterArticles = document.querySelector('.filter-articles'),
 dataFilter = document.querySelector('[data-filter]')
 let getFilterAttribute = dataFilter.getAttribute('data-filter')
+const dataDivFilter = document.querySelector('[data-div-filter]')
 
 filterArticles.addEventListener('click', ()=>{
   if(getFilterAttribute==='false'){
     dataFilter.setAttribute('data-filter', 'true')
+    dataDivFilter.setAttribute('data-div-filter', 'true')
     getFilterAttribute='true'
   }
 
   else{
     dataFilter.setAttribute('data-filter', 'false')
+    dataDivFilter.setAttribute('data-div-filter', 'false')
     getFilterAttribute='false'
   }
 })
 
+let currentDate = new Date(Date.now())
+let currentFullDate = currentDate.toLocaleDateString()
+const searchInput = document.querySelector('[data-admin-search]'),
+sortBy = document.querySelector('[data-sort]'),
+pageSize = document.querySelector('[data-page-size]'),
+dataFrom = document.querySelector('[data-from]'),
+dataTo = document.querySelector('[data-to]'),
+btnFilter = document.querySelector('[data-btn-filter]')
+
+
 // Display articles
-function displayTitles(pageSize) {
-  fetch(`https://newsapi.org/v2/everything?apiKey=feaaecacbf0d46b3bc7d60d0f1cecfcb&language=en&sortBy=publishedAt&q=ukraine&pageSize=${pageSize}`)
+function displayTitles(pageSize, sort, from, to, search ) {
+  fetch(`https://newsapi.org/v2/everything?apiKey=feaaecacbf0d46b3bc7d60d0f1cecfcb&language=en&sortBy=${sort}&q=${search}&pageSize=${pageSize}&from=${from}&to=${to}`)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data.articles[0].source.name);
       titles.innerHTML = ` 
       <span class="number-articles">${data.articles.length} articles</span>
       <tr>
@@ -179,7 +191,12 @@ function displayTitles(pageSize) {
       
     });
 }
-// displayTitles(25);
+displayTitles(20);
+
+btnFilter.addEventListener('click', ()=>{
+  displayTitles(pageSize.value, sortBy.value, dataFrom.value, dataTo.value)
+})
+
 
 remove.addEventListener("click", () => {
   displayView.setAttribute("data-view", "false");

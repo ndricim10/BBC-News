@@ -35,11 +35,14 @@
         </div></a
       >
     </header>
+    
+    
 
     <section class="filter container">
+    
       <div class="filter-articles">
-        <span>Filter articles:</span>
-      <i class="fas fa-filter"></i>
+        <span>Filter articles</span>
+        <i class="fas fa-filter"></i>
       </div>
       <div class="filter-by row" data-filter="false">
         <div class="filterBy col-sm-9 row">
@@ -54,23 +57,34 @@
           <div class="from-to col-sm">
             <div>
               <label for="from">From</label>
-            <input type="datetime-local" name="from" data-from placeholder="From">
+              <input
+                type="datetime-local"
+                name="from"
+                data-from
+                placeholder="From"
+              />
             </div>
-            
-           <div>
-            <label for="to">To</label>
-            <input type="datetime-local" name="to" data-to placeholder="To">
-           </div>
-            
+
+            <div>
+              <label for="to">To</label>
+              <input type="datetime-local" name="to" data-to placeholder="To" />
+            </div>
           </div>
 
           <div class="page-size col-sm">
-            <input type="text" data-page-size placeholder="Page size">
+            <input type="text" data-page-size placeholder="Page size" />
+          </div>
+          <div class="col-sm">
+            
           </div>
         </div>
         <div class="filter-search col-sm-3">
-          <input type="search" data-admin-search placeholder="Search...">
+          <input type="search" data-admin-search placeholder="Search..." />
         </div>
+      </div>
+
+      <div class="btn-filter" data-div-filter="false">
+        <button data-btn-filter>Filter</button>
       </div>
     </section>
 
