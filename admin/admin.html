@@ -23,11 +23,11 @@
   <body>
     <header class="container-fluid">
       <span><i class="fas fa-user-crown"></i> Hello Admin</span>
-      
+
       <div class="create-article">
         <i class="fas fa-plus"></i> Add an article
       </div>
-      
+
       <a data-go-to-login
         ><div class="log-out">
           <i class="fas fa-sign-out"></i>
@@ -36,10 +36,46 @@
       >
     </header>
 
-    
+    <section class="filter container">
+      <div class="filter-articles">
+        <span>Filter articles:</span>
+      <i class="fas fa-filter"></i>
+      </div>
+      <div class="filter-by row" data-filter="false">
+        <div class="filterBy col-sm-9 row">
+          <div class="sort-by col-sm">
+            <label for="sort">Sort by:</label>
+            <select name="sort" data-sort>
+              <option value="publishedAt" selected>Published</option>
+              <option value="relevancy">Relevancy</option>
+              <option value="popularity">Popularity</option>
+            </select>
+          </div>
+          <div class="from-to col-sm">
+            <div>
+              <label for="from">From</label>
+            <input type="datetime-local" name="from" data-from placeholder="From">
+            </div>
+            
+           <div>
+            <label for="to">To</label>
+            <input type="datetime-local" name="to" data-to placeholder="To">
+           </div>
+            
+          </div>
+
+          <div class="page-size col-sm">
+            <input type="text" data-page-size placeholder="Page size">
+          </div>
+        </div>
+        <div class="filter-search col-sm-3">
+          <input type="search" data-admin-search placeholder="Search...">
+        </div>
+      </div>
+    </section>
+
     <div class="display-api container-fluid">
       <table>
-        
         <!-- <tr>
           <td class="first-cell">1</td>
           <td>Some titles</td>
@@ -59,7 +95,7 @@
 
       <div class="row">
         <div class="col-sm-3 key">
-          <span>ID  </span>
+          <span>Source</span>
         </div>
         <div class="col-sm-9 value align-center">
           <span class="id">1</span>
@@ -144,9 +180,7 @@
         <i class="fas fa-times"></i>
       </div>
 
-      <div class="row ">
-        
-
+      <div class="row">
         <div class="col-sm-2 key">
           <span>Author</span>
         </div>
@@ -171,16 +205,12 @@
           >
         </div>
 
-        
-
         <div class="col-sm-2 key">
           <span>Image URL</span>
         </div>
         <div class="col-sm-10 value align-center">
           <input type="text" data-image-url value="Image url" />
         </div>
-
-        
 
         <div class="col-sm-2 key">
           <span>Content</span>
@@ -194,25 +224,24 @@
       </div>
 
       <div class="btn-edit">
-          <span>EDIT</span>
+        <span>EDIT</span>
       </div>
       <div class="btn-add">
         <span>Add Article</span>
-    </div>
+      </div>
     </div>
 
     <div class="display-add" data-add="false">
-
       <div class="remove remove-add">
         <i class="fas fa-times"></i>
       </div>
 
       <div class="row">
         <div class="col-sm-2 key">
-          <span>ID  </span>
+          <span>ID </span>
         </div>
         <div class="col-sm-10 value align-center">
-          <input type="text" data-id-add/>
+          <input type="text" data-id-add />
         </div>
 
         <div class="col-sm-2 key">
@@ -233,9 +262,7 @@
           <span>Description</span>
         </div>
         <div class="col-sm-10 value">
-          <textarea data-description-add>
-               </textarea
-          >
+          <textarea data-description-add> </textarea>
         </div>
 
         <div class="col-sm-2 key">
@@ -263,18 +290,16 @@
           <span>Content</span>
         </div>
         <div class="col-sm-10 value">
-          <textarea data-content-add>
-                    </textarea
-          >
+          <textarea data-content-add> </textarea>
         </div>
       </div>
 
       <div class="btn-edit">
-          <span>EDIT</span>
+        <span>EDIT</span>
       </div>
       <div class="btn-add">
         <span>Add Article</span>
-    </div>
+      </div>
     </div>
 
     <div class="delete-item" data-delete="false">

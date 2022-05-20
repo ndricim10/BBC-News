@@ -13,32 +13,47 @@ const deleteItem = document.querySelector(".delete-item");
 const dataYes = document.querySelector("[data-yes]");
 const dataNo = document.querySelector("[data-no]");
 const removeAdd = document.querySelector(".remove-add");
-const logOut = document.querySelector('[data-go-to-login]')
+const logOut = document.querySelector('[data-go-to-login]'),
+filterArticles = document.querySelector('.filter-articles'),
+dataFilter = document.querySelector('[data-filter]')
+let getFilterAttribute = dataFilter.getAttribute('data-filter')
 
+filterArticles.addEventListener('click', ()=>{
+  if(getFilterAttribute==='false'){
+    dataFilter.setAttribute('data-filter', 'true')
+    getFilterAttribute='true'
+  }
+
+  else{
+    dataFilter.setAttribute('data-filter', 'false')
+    getFilterAttribute='false'
+  }
+})
 
 // Display articles
-function displayTitles() {
-  fetch(`http://localhost:3000/articles?_order=desc&_sort=publishedAt`)
+function displayTitles(pageSize) {
+  fetch(`https://newsapi.org/v2/everything?apiKey=feaaecacbf0d46b3bc7d60d0f1cecfcb&language=en&sortBy=publishedAt&q=ukraine&pageSize=${pageSize}`)
     .then((res) => res.json())
     .then((data) => {
+      console.log(data.articles[0].source.name);
       titles.innerHTML = ` 
-      <span class="number-articles">${data.length} articles</span>
+      <span class="number-articles">${data.articles.length} articles</span>
       <tr>
-        <th class="first-cell">ID</th>
+        <th class="first-cell">Source</th>
         <th>Title</th>
         <th></th>
       </tr>`;
-      for (let i = 0; i < data.length; i++) {
+      for (let i = 0; i < data.articles.length; i++) {
         const tr = document.createElement("tr");
         titles.appendChild(tr);
         const tdFirst = document.createElement("td");
         tr.appendChild(tdFirst);
         tdFirst.classList.add("first-cell");
-        tdFirst.innerHTML = data[i].id;
+        tdFirst.innerHTML = data.articles[i].source.name;
 
         const tdSecond = document.createElement("td");
         tr.appendChild(tdSecond);
-        tdSecond.innerHTML = data[i].title;
+        tdSecond.innerHTML = data.articles[i].title;
 
         const tdThird = document.createElement("td");
         tr.appendChild(tdThird);
@@ -61,30 +76,30 @@ function displayTitles() {
         spanView.addEventListener("click", () => {
           displayView.setAttribute("data-view", "true");
           deleteItem.setAttribute("data-delete", "false");
-          document.querySelector(".id").innerHTML = data[i].id;
-          document.querySelector(".author").innerHTML = data[i].author;
+          document.querySelector(".id").innerHTML = data.articles[i].source.name;
+          document.querySelector(".author").innerHTML = data.articles[i].author;
           document.querySelector(".description").innerHTML =
-            data[i].description;
-          document.querySelector(".content").innerHTML = data[i].content;
-          document.querySelector(".url").innerHTML = data[i].url;
-          document.querySelector(".title").innerHTML = data[i].title;
-          document.querySelector(".published").innerHTML = data[i].publishedAt;
-          document.querySelector(".img-url").innerHTML = data[i].urlToImage;
+            data.articles[i].description;
+          document.querySelector(".content").innerHTML = data.articles[i].content;
+          document.querySelector(".url").innerHTML = data.articles[i].url;
+          document.querySelector(".title").innerHTML = data.articles[i].title;
+          document.querySelector(".published").innerHTML = data.articles[i].publishedAt;
+          document.querySelector(".img-url").innerHTML = data.articles[i].urlToImage;
         });
 
         // EDIT
         spanEdit.addEventListener("click", () => {
           displayEdit.setAttribute("data-edit", "true");
-          // document.querySelector("[data-id]").value = data[i].id;
-          document.querySelector("[data-author]").value = data[i].author;
+          // document.querySelector("[data-id]").value = data.articles[i].source.name;
+          document.querySelector("[data-author]").value = data.articles[i].author;
           document.querySelector("[data-description]").value =
-            data[i].description;
-          document.querySelector("[data-content]").value = data[i].content;
-          document.querySelector("[data-title]").value = data[i].title;
-          document.querySelector("[data-image-url]").value = data[i].urlToImage;
+            data.articles[i].description;
+          document.querySelector("[data-content]").value = data.articles[i].content;
+          document.querySelector("[data-title]").value = data.articles[i].title;
+          document.querySelector("[data-image-url]").value = data.articles[i].urlToImage;
 
           EditValues.addEventListener("click", () => {
-            fetch(`http://localhost:3000/articles/${data[i].id}`, {
+            fetch(`http://localhost:3000/articles/${data.articles[i].id}`, {
               method: "PUT",
               body: JSON.stringify({
                 title: document.querySelector("[data-title]").value,
@@ -109,9 +124,9 @@ function displayTitles() {
 
         spanDelete.addEventListener("click", () => {
           deleteItem.setAttribute("data-delete", "true");
-          // console.log(data[i].title);
+          // console.log(data.articles[i].title);
           dataYes.addEventListener("click", () => {
-            fetch(`http://localhost:3000/articles/${data[i].id}`, {
+            fetch(`http://localhost:3000/articles/${data.articles[i].id}`, {
               method: "DELETE",
             })
               .then((res) => res.json())
@@ -131,7 +146,7 @@ function displayTitles() {
           document.querySelector("[data-add]").setAttribute("data-add", "true");
 
           addButton.addEventListener("click", () => {
-            console.log(data[i].id);
+            console.log(data.articles[i].id);
             fetch(`http://localhost:3000/articles`, {
               method: "POST",
               body: JSON.stringify({
@@ -155,7 +170,7 @@ function displayTitles() {
           });
         });
 
-        let fullDate = data[i].publishedAt
+        let fullDate = data.articles[i].publishedAt
         // console.log(fullDate);
 
         // fullDate.getFullYear() 
@@ -164,7 +179,7 @@ function displayTitles() {
       
     });
 }
-displayTitles();
+// displayTitles(25);
 
 remove.addEventListener("click", () => {
   displayView.setAttribute("data-view", "false");
@@ -182,5 +197,6 @@ function Login(){
   window.location.href='http://127.0.0.1:5501/admin-login/login.html'
 }
 
-
 logOut.addEventListener('click', Login)
+
+

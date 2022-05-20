@@ -69,6 +69,64 @@ header a .log-out:hover {
   color: var(--main-color);
 }
 
+.filter {
+  margin-top: 80px;
+}
+.filter .filter-articles {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+  align-items: center;
+  font-weight: 700;
+  cursor: pointer;
+}
+.filter .filter-articles i {
+  color: var(--main-color);
+}
+.filter .filter-by[data-filter=true] {
+  gap: 20px;
+}
+.filter .filter-by[data-filter=true] .from-to, .filter .filter-by[data-filter=true] .sort-by, .filter .filter-by[data-filter=true] .page-size, .filter .filter-by[data-filter=true] .filter-search {
+  display: flex;
+  align-items: center;
+}
+.filter .filter-by[data-filter=true] input {
+  height: 30px;
+  outline: none;
+}
+.filter .filter-by[data-filter=true] input::placeholder {
+  padding-left: 1rem;
+}
+.filter .filter-by[data-filter=true] .filterBy {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  align-self: center;
+}
+.filter .filter-by[data-filter=true] .filterBy div {
+  display: flex;
+  gap: 10px;
+}
+.filter .filter-by[data-filter=true] .filterBy div select {
+  height: 30px;
+  outline: none;
+}
+.filter .filter-by[data-filter=true] .filterBy .from-to {
+  flex-direction: column;
+}
+.filter .filter-by[data-filter=true] .filterBy .from-to div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.filter .filter-by[data-filter=true] .filterBy .from-to div label {
+  width: 40px;
+}
+
+.filter-by[data-filter=false] {
+  display: none;
+}
+
 .display-api {
   margin-top: 100px;
   display: flex;
@@ -152,6 +210,26 @@ header a .log-out:hover {
 @media (max-width: 800px) {
   .remove i:hover {
     transform: unset;
+  }
+
+  .filter .filter-by[data-filter=true] .from-to, .filter .filter-by[data-filter=true] .sort-by, .filter .filter-by[data-filter=true] .page-size, .filter .filter-by[data-filter=true] .filter-search {
+    display: flex;
+    align-items: unset;
+  }
+  .filter .filter-by[data-filter=true] .filterBy {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 20vh;
+  }
+  .filter .filter-by[data-filter=true] .filterBy .sort-by label {
+    width: 60px;
+    height: max-content;
+  }
+  .filter .filter-by[data-filter=true] .filterBy .page-size {
+    grid-area: 1/2/2/3;
+  }
+  .filter .filter-by[data-filter=true] .filterBy .from-to {
+    grid-area: 2/1/3/4;
   }
 }
 .key,
