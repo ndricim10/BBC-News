@@ -45,7 +45,7 @@ btnFilter = document.querySelector('[data-btn-filter]')
 
 // Display articles
 function displayTitles(pageSize, sort, from, to, search ) {
-  fetch(`https://newsapi.org/v2/everything?apiKey=feaaecacbf0d46b3bc7d60d0f1cecfcb&language=en&sortBy=${sort}&q=${search}&pageSize=${pageSize}&from=${from}&to=${to}`)
+  fetch(`https://newsapi.org/v2/everything?apiKey=de8ffefdb1c34b05b43ba30cffd9e815&language=en&sortBy=${sort}&q=${search}&pageSize=${pageSize}&from=${from}&to=${to}`)
     .then((res) => res.json())
     .then((data) => {
       titles.innerHTML = ` 
@@ -182,16 +182,21 @@ function displayTitles(pageSize, sort, from, to, search ) {
           });
         });
 
-        let fullDate = data.articles[i].publishedAt
-        // console.log(fullDate);
-
-        // fullDate.getFullYear() 
-
+        searchInput.addEventListener('input', (e)=>{
+          e = event.target.value
+          if(e===''){
+            displayTitles(20)
+          }
+          else{
+            
+            displayTitles(data.articles.length, data.articles[i].publishedAt, dataFrom.value, dataTo.value, e)
+          }
+        })
       }
       
     });
 }
-displayTitles(20);
+// displayTitles(20);
 
 btnFilter.addEventListener('click', ()=>{
   displayTitles(pageSize.value, sortBy.value, dataFrom.value, dataTo.value)
